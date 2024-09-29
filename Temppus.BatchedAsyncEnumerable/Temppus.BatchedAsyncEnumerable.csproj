@@ -16,8 +16,8 @@
     <PackageTags>async;enumerable;batch;data;processing;dataflow</PackageTags>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <Version>1.0.0</Version>
-    <PackageReleaseNotes>First major version release.</PackageReleaseNotes>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>Fixed README link.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
