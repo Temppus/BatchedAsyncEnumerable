@@ -18,8 +18,8 @@ namespace Temppus.BatchedAsyncEnumerable.Tests
             output.WriteLine("Start");
 
             await foreach (var batch in SampleUnderlyingAsyncEnumerable(itemsToGenerate: 12, output)
-                               .ToBatchedAsyncEnumerable(batchSize,
-                               TimeSpan.FromMilliseconds(500),
+                               .ToBatchedAsyncEnumerable(batchSize: batchSize,
+                               batchTimeout: TimeSpan.FromMilliseconds(500),
                                CancellationToken.None))
             {
                 output.WriteLine($"{DateTime.UtcNow.TimeOfDay:g} - Processing batch of size {batch.Length} for 1 second simulated");

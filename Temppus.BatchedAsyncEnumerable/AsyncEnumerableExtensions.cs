@@ -15,16 +15,16 @@ namespace Temppus.BatchedAsyncEnumerable
         /// <typeparam name="T"></typeparam>
         /// <param name="asyncEnumerable"></param>
         /// <param name="batchSize"></param>
-        /// <param name="batchTriggerDelay"></param>
+        /// <param name="batchTimeout"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         public static IAsyncEnumerable<T[]> ToBatchedAsyncEnumerable<T>(
             this IAsyncEnumerable<T> asyncEnumerable,
             int batchSize,
-            TimeSpan batchTriggerDelay,
+            TimeSpan batchTimeout,
             CancellationToken cancellationToken)
         {
-            return ToBatchedAsyncEnumerable(asyncEnumerable, batchSize, batchSize, batchTriggerDelay, cancellationToken);
+            return ToBatchedAsyncEnumerable(asyncEnumerable, batchSize, batchSize, batchTimeout, cancellationToken);
         }
 
         /// <summary>
@@ -34,14 +34,14 @@ namespace Temppus.BatchedAsyncEnumerable
         /// <param name="asyncEnumerable"></param>
         /// <param name="batchSize"></param>
         /// <param name="boundedCapacity"></param>
-        /// <param name="batchTriggerDelay"></param>
+        /// <param name="batchTimeout"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         public static async IAsyncEnumerable<T[]> ToBatchedAsyncEnumerable<T>(
             this IAsyncEnumerable<T> asyncEnumerable,
             int batchSize,
             int boundedCapacity,
-            TimeSpan batchTriggerDelay,
+            TimeSpan batchTimeout,
             [EnumeratorCancellation] CancellationToken cancellationToken)
         {
             var batchBlock = new BatchBlock<T>(batchSize, new GroupingDataflowBlockOptions
@@ -49,7 +49,7 @@ namespace Temppus.BatchedAsyncEnumerable
                 BoundedCapacity = boundedCapacity,
             });
 
-            var timer = new System.Timers.Timer(batchTriggerDelay.TotalMilliseconds)
+            var timer = new System.Timers.Timer(batchTimeout.TotalMilliseconds)
             {
                 AutoReset = true,
                 Enabled = true
