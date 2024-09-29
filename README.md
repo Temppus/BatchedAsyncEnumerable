@@ -23,7 +23,7 @@ The `IAsyncEnumerable<T>` type is powerful, but using it comes with many pitfall
 
 ## How it works
 
-Given example ([Test_Example_Batch_Usage](Temppus.BatchedAsyncEnumerable.Tests/AsyncEnumerableExtensionTests.cs)) where we set `batchSize` to 5 and `batchTimeout` to 500ms we can see the output of processing.
+Given example ([Test_Example_Batch_Usage](Temppus.BatchedAsyncEnumerable.Tests/AsyncEnumerableExtensionTests.cs)) where we set `batchSize` to 5 and `batchTimeout` to 500ms we can see the output of processing:
 
 ```
 Start
@@ -48,4 +48,4 @@ Start
 Done
 ```
 
-YOu can see that while we are processing batch next items are being enumerated asynchronously from underlying enumerable to achieve better throughput. Batch will be yielded either when specified `batchSize` is reached or if `batchTimeout` elapsed.
+You can see that while we are processing a batch, the next items are being enumerated asynchronously from the underlying enumerable to achieve better throughput. A batch will be yielded either when the specified `batchSize` is reached or if the `batchTimeout` has elapsed.
