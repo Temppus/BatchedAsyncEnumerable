@@ -23,7 +23,7 @@ The `IAsyncEnumerable<T>` type is powerful, but using it comes with many pitfall
 
 ## How it works
 
-Given example ([Test_Example_Batch_Usage](Temppus.BatchedAsyncEnumerable.Tests/AsyncEnumerableExtensionTests.cs)) where we set `batchSize` to 5 and `batchTimeout` to 500ms we can see the output od processing.
+Given example ([Test_Example_Batch_Usage](Temppus.BatchedAsyncEnumerable.Tests/AsyncEnumerableExtensionTests.cs)) where we set `batchSize` to 5 and `batchTimeout` to 500ms we can see the output of processing.
 
 ```
 Start
