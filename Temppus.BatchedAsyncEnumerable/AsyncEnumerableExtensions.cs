@@ -93,7 +93,7 @@ namespace Temppus.BatchedAsyncEnumerable
             {
                 while (true)
                 {
-                    T[] messagesBatch = null;
+                    T[]? messagesBatch = null;
 
                     try
                     {
