@@ -9,16 +9,24 @@
     <Description>Extension method that will transform `IAsyncEnumerable&lt;T&gt;` to `IAsyncEnumerable&lt;T[]&gt;` allowing for efficient asynchronous batch processing with one line of code.</Description>
     <Copyright>MIT License</Copyright>
     <PackageProjectUrl></PackageProjectUrl>
+    <PackageReadmeFile>NugetPackageREADME.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Temppus/BatchedAsyncEnumerable</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>async;enumerable;batch;data;processing;dataflow</PackageTags>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <PackageReleaseNotes>Relaxed minimal required Downgrade to Dataflow to 6.0.0</PackageReleaseNotes>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>Temppus.BatchedAsyncEnumerable</PackageId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\NugetPackageREADME.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Threading.Tasks.Dataflow" Version="6.0.0" />
