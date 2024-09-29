@@ -15,8 +15,10 @@ namespace Temppus.BatchedAsyncEnumerable.Tests
         {
             const int batchSize = 5;
 
+            output.WriteLine("Start");
+
             await foreach (var batch in SampleUnderlyingAsyncEnumerable(itemsToGenerate: 12, output)
-                               .AsBatchAsyncStream(batchSize, batchSize,
+                               .ToBatchedAsyncEnumerable(batchSize,
                                TimeSpan.FromMilliseconds(500),
                                CancellationToken.None))
             {
@@ -49,7 +51,7 @@ namespace Temppus.BatchedAsyncEnumerable.Tests
             var flattenItems = new List<int>();
 
             const int batchSize = 1000;
-            await foreach (var batch in CreateUnderlyingAsyncEnumerable(true).AsBatchAsyncStream(
+            await foreach (var batch in CreateUnderlyingAsyncEnumerable(true).ToBatchedAsyncEnumerable(
                                batchSize,
                                TimeSpan.FromMilliseconds(batchTimerPeriodMs),
                                CancellationToken.None))
@@ -83,7 +85,7 @@ namespace Temppus.BatchedAsyncEnumerable.Tests
             {
                 var cts = new CancellationTokenSource();
 
-                await foreach (var batch in CreateUnderlyingAsyncEnumerable().AsBatchAsyncStream(
+                await foreach (var batch in CreateUnderlyingAsyncEnumerable().ToBatchedAsyncEnumerable(
                                    batchSize, batchSize * batchesToCache,
                                    TimeSpan.FromMilliseconds(100),
                                    cts.Token))
@@ -142,7 +144,7 @@ namespace Temppus.BatchedAsyncEnumerable.Tests
             var ex = await Assert.ThrowsAsync<Exception>(async () =>
             {
                 await foreach (var _ in AsyncEnumerableWhichFailsAfter(failOnIdx)
-                                   .AsBatchAsyncStream(batchSize,
+                                   .ToBatchedAsyncEnumerable(batchSize,
                                        TimeSpan.FromMilliseconds(100),
                                        CancellationToken.None))
                 {

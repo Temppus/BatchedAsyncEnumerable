@@ -18,13 +18,13 @@ namespace Temppus.BatchedAsyncEnumerable
         /// <param name="batchTriggerDelay"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public static IAsyncEnumerable<T[]> AsBatchAsyncStream<T>(
+        public static IAsyncEnumerable<T[]> ToBatchedAsyncEnumerable<T>(
             this IAsyncEnumerable<T> asyncEnumerable,
             int batchSize,
             TimeSpan batchTriggerDelay,
             CancellationToken cancellationToken)
         {
-            return AsBatchAsyncStream(asyncEnumerable, batchSize, batchSize, batchTriggerDelay, cancellationToken);
+            return ToBatchedAsyncEnumerable(asyncEnumerable, batchSize, batchSize, batchTriggerDelay, cancellationToken);
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace Temppus.BatchedAsyncEnumerable
         /// <param name="batchTriggerDelay"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public static async IAsyncEnumerable<T[]> AsBatchAsyncStream<T>(
+        public static async IAsyncEnumerable<T[]> ToBatchedAsyncEnumerable<T>(
             this IAsyncEnumerable<T> asyncEnumerable,
             int batchSize,
             int boundedCapacity,
