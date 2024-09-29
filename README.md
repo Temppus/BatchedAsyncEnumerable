@@ -1,5 +1,5 @@
 # BatchedAsyncEnumerable
-Extension method that will transform `IAsyncEnumerable&lt;T>` to `IAsyncEnumerable&lt;T[]>` allowing for efficient asynchronous batch processing with one line of code.
+Extension method that will transform `IAsyncEnumerable<T>` to `IAsyncEnumerable<T[]>` allowing for efficient asynchronous batch processing with one line of code.
 
 ## Motivation:
 The `IAsyncEnumerable<T>` type is powerful, but using it comes with many pitfalls. Creating a batching method for this type revealed more gotchas than expected, given the nature of the `async` and `yield` combination. These issues are extremely hard to debug and must be handled carefully to avoid shooting yourself in the foot.
