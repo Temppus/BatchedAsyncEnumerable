@@ -3,8 +3,6 @@ Extension method that will transform `IAsyncEnumerable<T>` to `IAsyncEnumerable<
 
 Nuget available [here](https://www.nuget.org/packages/BatchedAsyncEnumerable/).
 
-https://www.nuget.org/packages/BatchedAsyncEnumerable
-
 ## Motivation:
 The `IAsyncEnumerable<T>` type is powerful, but using it comes with many pitfalls. Creating a batching method for this type revealed more gotchas than expected, given the nature of the `async` and `yield` combination. These issues are extremely hard to debug and must be handled carefully to avoid shooting yourself in the foot.
 
